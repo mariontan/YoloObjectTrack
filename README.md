@@ -1,3 +1,11 @@
+this is the test script:
+
+prep sciprt: https://github.com/mariontan/Yolo_prep_scripts_etc
+
+train script: https://github.com/mariontan/Traffic_Flow
+
+
+
 # PyTorch Object Detection and Tracking
 Object detection in images, and tracking across video frames
 
