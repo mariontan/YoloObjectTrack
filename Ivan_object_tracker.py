@@ -20,8 +20,9 @@ from PIL import Image
 # weights_path = r'D:\Ivan\YoloCheckpoints\OID_Left_view_1/29.weights'
 # class_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_left\config/coco.names'
 
-config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/yolov3.cfg' #img_size = 416
-# config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/yolov3.cfg' #img_size = 416
+# config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/yolov3.cfg' #img_size = 416
+config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/yolov3.cfg' #img_size = 416
+
 # config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/yolov3_608.cfg' #img_size=608
 # config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/yolov3_832.cfg' #img_size=832
 # config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/yolov3_224.cfg' #img_size=224
@@ -33,9 +34,10 @@ config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/
 # weights_path = r'D:\Ivan\YoloCheckpoints\OID_front_1_224/80.weights' #img_size=224
 # weights_path = r'D:\Ivan\YoloCheckpoints\OID_front_1_320/80.weights' #img_size=320
 
-weights_path=r'D:\Ivan\YoloCheckpoints\OID_front_new_cleaner_1_erkli_car\checkpoints/yolov3_ckpt_297.pth'
+# weights_path=r'D:\Ivan\YoloCheckpoints\OID_front_new_cleaner_1_erkli_car\checkpoints/yolov3_ckpt_297.pth'
+weights_path=r'D:\Ivan\YoloCheckpoints\katip_truck_car_416\checkpoints/yolov3_ckpt_302.pth'
 
-class_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/coco.names'
+class_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/coco.names'
 
 #img_size = 416
 #conf_thres = 0.8
@@ -50,7 +52,7 @@ img_size=416
 #conf_thres=0.9995
 #conf_thres = 0.998
 # conf_thres = 0.998
-conf_thres = 0.9
+conf_thres = 0.99
 nms_thres=0.4
 
 # # Load model and weights
@@ -95,12 +97,16 @@ def detect_image(img):
         detections = utils.non_max_suppression(detections, 80, conf_thres, nms_thres)
     return detections[0]
 
-# videopath = r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/cars2_crop.mp4')
+# videopath = r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/cars2_crop.mp4'
 # videopath = r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/cars2.mp4'
 # videopath = r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/cars.mp4'
-videopath = r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/car_crop.mp4'
+# videopath = r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/car_crop.mp4'
 # videopath = r'D:\Ivan\Test_data\Katipunan/20200608.mp4'
-
+##katipunan data set
+# videopath = r'D:\Ivan\Test_data\Katipunan\test/VID_20200509_161540_crop.mp4'
+# videopath = r'D:\Ivan\Test_data\Katipunan\test/VID_20200512_161525_crop.mp4'
+# videopath = r'D:\Ivan\Test_data\Katipunan\test/VID_20200515_161547_crop.mp4'
+videopath = r'D:\Ivan\Test_data\Katipunan\test/VID_20200515_161547.mp4'
 import cv2
 from sort import *
 colors=[(255,0,0),(0,255,0),(0,0,255),(255,0,255),(128,0,0),(0,128,0),(0,0,128),(128,0,128),(128,128,0),(0,128,128)]
@@ -116,10 +122,11 @@ ret,frame=vid.read()
 vw = frame.shape[1]
 vh = frame.shape[0]
 print ("Video size", vw,vh)
-outvideo = cv2.VideoWriter(videopath.replace(".mp4", "-det.mp4"),fourcc,20.0,(vw,vh))
+outvideo = cv2.VideoWriter(videopath.replace(".mp4", "-det2Cls.mp4"),fourcc,20.0,(vw,vh))
 
 frames = 0
 starttime = time.time()
+car_count = 0
 while(True):
     ret, frame = vid.read()
     if not ret:
@@ -150,6 +157,7 @@ while(True):
             cv2.rectangle(frame, (x1, y1), (x1+box_w, y1+box_h), color, 4)
             cv2.rectangle(frame, (x1, y1-35), (x1+len(cls)*19+80, y1), color, -1)
             cv2.putText(frame, cls + "-" + str(int(obj_id)), (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 3)
+            car_count=obj_id
 
     cv2.imshow('Stream', frame)
     outvideo.write(frame)
@@ -159,5 +167,6 @@ while(True):
 
 totaltime = time.time()-starttime
 print(frames, "frames", totaltime/frames, "s/frame")
+print('number of cars', car_count)
 cv2.destroyAllWindows()
 outvideo.release()
