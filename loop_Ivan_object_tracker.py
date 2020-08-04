@@ -111,12 +111,10 @@ def detect_image(img):
 # videoArr = [r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529_crop.mp4',
 #             r'D:\Ivan\Test_data\Katipunan\test/VID_20200521_161542_crop.mp4']
 
-videoArr=[#r'D:\Ivan\Test_data\Katipunan\test/VID_20200530_161507_crop.mp4'
-    # r'D:\Ivan\Test_data\Katipunan\test/VID_20200602_161933_crop.mp4',
-    # r'D:\Ivan\Test_data\Katipunan\test/VID_20200605_161506_crop.mp4',
-    # r'D:\Ivan\Test_data\Katipunan\test/VID_20200611_161534_crop.mp4',
-    r'D:\Ivan\Test_data\Katipunan\test/VID_20200614_161517_crop.mp4',
-    r'D:\Ivan\Test_data\Katipunan\test/VID_20200617_161508_crop.mp4',]
+# videoArr=[r'D:\Ivan\Test_data\Katipunan\test/VID_20200530_161507_crop.mp4',
+#     r'D:\Ivan\Test_data\Katipunan\test/VID_20200614_161517_crop.mp4']
+
+videoArr=[r'D:/Ivan/Test_data/Katipunan/test/VID_20200602_161933_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200605_161506_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200611_161534_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200620_161507_crop.mp4']
 
 for vid in videoArr:
     print(vid)
@@ -143,7 +141,7 @@ for vid in videoArr:
     car_count = 0
 
     file1 = open(r"D:\Ivan\carsCount.txt","a")
-    
+    file1.write(videopath)
     while(True):
         ret, frame = vid.read()
         if not ret:
@@ -185,7 +183,8 @@ for vid in videoArr:
     totaltime = time.time()-starttime
     print(frames, "frames", totaltime/frames, "s/frame")
     print('number of cars', car_count)
-    file1.write(vid+' '+str(car_count)+'\n')
+    file1.write(str(car_count))
+    file1.write('/n')
     file1.close()
     cv2.destroyAllWindows()
     outvideo.release()
