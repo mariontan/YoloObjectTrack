@@ -13,31 +13,30 @@ from PIL import Image
 
 
 # config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/yolov3.cfg' #img_size = 416
-# config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/yolov3.cfg' #img_size = 416
+config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/yolov3.cfg' #img_size = 416
 # config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/yolov3.cfg' #img_size = 416
-config_path = r'C:\Users\AIC-WS1\Ivan\YoloVideoTrack\config/yolov3_orig.cfg'
+# config_path = r'C:\Users\AIC-WS1\Ivan\YoloVideoTrack\config/yolov3_orig.cfg'
 
 # weights_path=r'D:\Ivan\YoloCheckpoints\OID_front_1_erkli_car\checkpoints/yolov3_ckpt_300.pth'
-# weights_path=r'D:\Ivan\YoloCheckpoints\OID_front_new_cleaner_1_erkli_car\checkpoints/yolov3_ckpt_297.pth'
+weights_path=r'D:\Ivan\YoloCheckpoints\OID_front_new_cleaner_1_erkli_car\checkpoints/yolov3_ckpt_297.pth'
 # weights_path=r'D:\Ivan\YoloCheckpoints\katip_truck_car_416\checkpoints/yolov3_ckpt_302.pth'
-weights_path = r'C:\Users\AIC-WS1\Ivan\YoloVideoTrack\config/yolov3_orig.weights'
+# weights_path = r'C:\Users\AIC-WS1\Ivan\YoloVideoTrack\config/yolov3_orig.weights'
 
 # class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/coco.names'
-# class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/coco.names'
+class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/coco.names'
 # class_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/coco.names'
-class_path = r'C:\Users\AIC-WS1\Ivan\YoloVideoTrack\config/coco_orig.names'
+# class_path = r'C:\Users\AIC-WS1\Ivan\YoloVideoTrack\config/coco_orig.names'
 
 img_size=416
-# conf_thres = 0.99
 nms_thres=0.4
 
-carClass = 2
+carClass = 0
 
-confArr = [0.9,0.91,0.92,0.93,0.94,0.95,0.96,0.97,0.98,0.99]
+confArr=[0.99,0.991,0.992,0.993,0.994,0.995,0.996,0.997,0.998,0.999,0.9991,0.9992,0.9993,0.9994,0.9995,0.9996,0.9997,0.9998,0.9999]
 
-# videoArr = [r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529_crop.mp4']
+videoArr = [r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529_crop.mp4']
 
-videoArr = [r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/car_crop.mp4']
+# videoArr = [r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/car_crop.mp4']
 
 # videoArr=[r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529_crop.mp4',r'D:\Ivan\Test_data\Katipunan\test/VID_20200521_161542_crop.mp4',r'D:\Ivan\Test_data\Katipunan\test/VID_20200530_161507_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200602_161933_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200605_161506_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200611_161534_crop.mp4',r'D:\Ivan\Test_data\Katipunan\test/VID_20200614_161517_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200620_161507_crop.mp4']
 
@@ -149,8 +148,8 @@ for conf_thres in confArr:
         totaltime = time.time()-starttime
         print(frames, "frames", totaltime/frames, "s/frame")
         print('number of cars', car_count)
-        file1.write('car count:'+str(car_count))
-        file1.write(' conf thres:'+ str(conf_thres))
+        file1.write(','+str(car_count))
+        file1.write(','+ str(conf_thres))
         file1.write('\n')
         file1.close()
         cv2.destroyAllWindows()
