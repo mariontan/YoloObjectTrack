@@ -32,13 +32,14 @@ nms_thres=0.4
 
 carClass = 0
 
-confArr=[0.99,0.991,0.992,0.993,0.994,0.995,0.996,0.997,0.998,0.999,0.9991,0.9992,0.9993,0.9994,0.9995,0.9996,0.9997,0.9998,0.9999]
+confArr=[0.9988,0.9989]
 
-videoArr = [r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529_crop.mp4']
+# videoArr = [r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529_crop.mp4']
 
 # videoArr = [r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/car_crop.mp4']
 
 # videoArr=[r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529_crop.mp4',r'D:\Ivan\Test_data\Katipunan\test/VID_20200521_161542_crop.mp4',r'D:\Ivan\Test_data\Katipunan\test/VID_20200530_161507_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200602_161933_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200605_161506_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200611_161534_crop.mp4',r'D:\Ivan\Test_data\Katipunan\test/VID_20200614_161517_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200620_161507_crop.mp4']
+videoArr=[r'D:\Ivan\Test_data\Katipunan\test/VID_20200521_161542_crop.mp4',r'D:\Ivan\Test_data\Katipunan\test/VID_20200530_161507_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200602_161933_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200605_161506_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200611_161534_crop.mp4',r'D:\Ivan\Test_data\Katipunan\test/VID_20200614_161517_crop.mp4',r'D:/Ivan/Test_data/Katipunan/test/VID_20200620_161507_crop.mp4']
 
 model = Darknet(config_path, img_size=img_size)
 
