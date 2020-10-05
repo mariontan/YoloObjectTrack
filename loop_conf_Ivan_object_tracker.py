@@ -32,7 +32,8 @@ nms_thres=0.4
 
 carClass = 0
 
-confArr=[0.9981,0.9982,0.9983,0.9984,0.9985,0.9986,0.9987,0.9988,0.9989]
+# confArr=[0.9981,0.9982,0.9983,0.9984,0.9985,0.9986,0.9987,0.9988,0.9989]
+confArr=[0.9]
 videoArr=[]
 
 
@@ -67,6 +68,9 @@ videoArr = [r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/car_cr
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200813_161504_crop.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200816_161502_crop.mp4')
 
+lineX0 = 0
+lineX1 = 900
+lineY  = 300
 
 print(len(videoArr))
 
@@ -151,7 +155,7 @@ for conf_thres in confArr:
             pad_y = max(img.shape[1] - img.shape[0], 0) * (img_size / max(img.shape))
             unpad_h = img_size - pad_y
             unpad_w = img_size - pad_x
-            cv2.line(frame, 100,100)
+            cv2.line(frame, (lineX0,lineY),(lineX1,lineY),colors[0],5)
             if detections is not None:
                 tracked_objects = mot_tracker.update(detections.cpu())
 
@@ -167,7 +171,8 @@ for conf_thres in confArr:
                     cv2.rectangle(frame, (x1, y1), (x1+box_w, y1+box_h), color, 4)
                     cv2.rectangle(frame, (x1, y1-35), (x1+len(cls)*19+80, y1), color, -1)
                     cv2.putText(frame, cls + "-" + str(int(obj_id)), (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 3)
-                    cv2.line(frame, 100,100)
+                    # cv2.line(frame, (50,100),(600,100),color,5)
+                    #if rectangle crosses line i++
                     if(cls_pred==carClass and (obj_id in carObjId)==False ):
                         car_count= car_count+1
                         carObjId.append(obj_id)                    
