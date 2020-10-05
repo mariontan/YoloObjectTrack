@@ -156,6 +156,7 @@ for conf_thres in confArr:
             unpad_h = img_size - pad_y
             unpad_w = img_size - pad_x
             cv2.line(frame, (lineX0,lineY),(lineX1,lineY),colors[0],5)
+            # cv2.putText(frame, car_count, (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 3)
             if detections is not None:
                 tracked_objects = mot_tracker.update(detections.cpu())
 
@@ -173,8 +174,9 @@ for conf_thres in confArr:
                     cv2.putText(frame, cls + "-" + str(int(obj_id)), (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 3)
                     # cv2.line(frame, (50,100),(600,100),color,5)
                     #if rectangle crosses line i++
-                    if(cls_pred==carClass and (obj_id in carObjId)==False ):
+                    if(cls_pred==carClass and (obj_id in carObjId)==False and lineY >= y1+box_h ):
                         car_count= car_count+1
+                        print(car_count)
                         carObjId.append(obj_id)                    
             cv2.imshow('Stream', frame)
             outvideo.write(frame)
