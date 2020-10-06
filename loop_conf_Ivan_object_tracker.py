@@ -33,13 +33,35 @@ nms_thres=0.4
 carClass = 0
 
 # confArr=[0.9981,0.9982,0.9983,0.9984,0.9985,0.9986,0.9987,0.9988,0.9989]
-confArr=[0.9]
+confArr=[0.75]
 videoArr=[]
 
 
 # videoArr = [r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/car_crop.mp4']
 # videoArr = [r'D:/Ivan/Test_data/IvanMadeDataSet/Stanford_AI_cars_modified/cars.mp4']
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200509_161540.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200509_161540.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200714_161511.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200717_161614.mp4')
+
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200512_161525.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200515_161547.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200521_161542.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200530_161507.mp4')
+
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200605_161506.mp4')
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200611_161534.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200614_161517.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200617_161508.mp4')
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200620_161507.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200705_161518.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200708_161553.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200720_161556.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200723_161518.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200726_161509.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200729_161519.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200801_161505.mp4')
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200602_161933.mp4')
 
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200509_161540_crop.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200512_161525_crop.mp4')
@@ -72,7 +94,7 @@ videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200509_161540.mp4')
 
 lineX0 = 0
 lineX1 = 1800
-lineY  = 500
+lineY  = 300
 
 print(len(videoArr))
 
@@ -178,7 +200,7 @@ for conf_thres in confArr:
                     #if rectangle crosses line i++
                     if(cls_pred==carClass and (obj_id in carObjId)==False and lineY <= y1+box_h ):
                         car_count= car_count+1
-                        print(car_count)
+                        # print(car_count)
                         carObjId.append(obj_id)                    
             cv2.imshow('Stream', frame)
             outvideo.write(frame)
