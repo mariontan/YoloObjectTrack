@@ -12,18 +12,19 @@ import matplotlib.patches as patches
 from PIL import Image
 
 
-# config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/yolov3.cfg' #img_size = 416
-config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/yolov3.cfg' #img_size = 416
+config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car_oneclass\config/yolov3.cfg' #img_size = 416
+# config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/yolov3.cfg' #img_size = 416
 # config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/yolov3.cfg' #img_size = 416
 # config_path = r'C:\Users\AIC-WS1\Ivan\YoloVideoTrack\config/yolov3_orig.cfg'
 
-# weights_path=r'D:\Ivan\YoloCheckpoints\OID_front_1_erkli_car\checkpoints/yolov3_ckpt_300.pth'
-weights_path=r'D:\Ivan\YoloCheckpoints\OID_front_new_cleaner_1_erkli_car\checkpoints/yolov3_ckpt_297.pth'
+weights_path=r'D:\Ivan\YoloCheckpoints\\katip_truck_car_oneclass_416\checkpoints/yolov3_ckpt_291.pth'
+# weights_path=r'D:\Ivan\YoloCheckpoints\OID_front_new_cleaner_1_erkli_car\checkpoints/yolov3_ckpt_297.pth'
 # weights_path=r'D:\Ivan\YoloCheckpoints\katip_truck_car_416\checkpoints/yolov3_ckpt_302.pth'
 # weights_path = r'C:\Users\AIC-WS1\Ivan\YoloVideoTrack\config/yolov3_orig.weights'
 
-# class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/coco.names'
-class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/coco.names'
+
+class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car_oneclass\config/coco.names'
+# class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/coco.names'
 # class_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/coco.names'
 # class_path = r'C:\Users\AIC-WS1\Ivan\YoloVideoTrack\config/coco_orig.names'
 
@@ -33,7 +34,7 @@ nms_thres=0.4
 carClass = 0
 
 # confArr=[0.9981,0.9982,0.9983,0.9984,0.9985,0.9986,0.9987,0.9988,0.9989]
-confArr=[0.75]
+confArr=[0.8]
 videoArr=[]
 
 
@@ -43,48 +44,24 @@ videoArr=[]
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200714_161511.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200717_161614.mp4')
-
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200512_161525.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200515_161547.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200521_161542.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200530_161507.mp4')
 
 # videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200605_161506.mp4')
-videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200611_161534.mp4')
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200614_161517.mp4')
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200617_161508.mp4')
-videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200620_161507.mp4')
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200705_161518.mp4')
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200708_161553.mp4')
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200720_161556.mp4')
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200723_161518.mp4')
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200726_161509.mp4')
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200729_161519.mp4')
-videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200801_161505.mp4')
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200611_161534.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200614_161517.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200617_161508.mp4')
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200620_161507.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200705_161518.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200708_161553.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200720_161556.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200723_161518.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200726_161509.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200729_161519.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200801_161505.mp4')
 # videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200602_161933.mp4')
-
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200509_161540_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200512_161525_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200515_161547_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200518_161529_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200521_161542_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200530_161507_crop.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200602_161933_crop.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200605_161506_crop.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200611_161534_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200614_161517_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200617_161508_crop.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/test/VID_20200620_161507_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200705_161518_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200708_161553_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200711_161516_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200714_161511_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200717_161614_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200720_161556_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200723_161518_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200726_161509_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200729_161519_crop.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200801_161505_crop.mp4')
 
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200804_161505_crop.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200807_161502_crop.mp4')
@@ -92,11 +69,45 @@ videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200801_161505.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200813_161504_crop.mp4')
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200816_161502_crop.mp4')
 
+#15fps
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200509_161540.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200512_161525.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200515_161547.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200518_161529.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200521_161542.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200530_161507.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200602_161933.mp4')
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200605_161506.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200608_161513.mp4')
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200611_161534.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200614_161517.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200617_161508.mp4')
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200620_161507.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200705_161518.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200708_161553.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200711_161516.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200714_161511.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200717_161614.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200720_161556.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200723_161518.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200726_161509.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200729_161519.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200801_161505.mp4')
+# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200602_161933.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200804_161505.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200807_161502.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200810_161501.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200813_161504.mp4')
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200816_161502.mp4')
+
+#20fps
+# videoArr.append(r'D:\Ivan\Test_data\Katipunan\20fps_test/VID_20200509_161540.mp4')
+
 lineX0 = 0
 lineX1 = 1800
 lineY  = 300
 
-print(len(videoArr))
+print('videoArr len',len(videoArr))
 
 model = Darknet(config_path, img_size=img_size)
 
@@ -156,7 +167,7 @@ for conf_thres in confArr:
         vw = frame.shape[1]
         vh = frame.shape[0]
         print ("Video size", vw,vh)
-        outvideo = cv2.VideoWriter(videopath.replace(".mp4", "-detModel_2"+"_"+str(conf_thres)+"nms"+str(nms_thres)+".mp4"),fourcc,20.0,(vw,vh))
+        outvideo = cv2.VideoWriter(videopath.replace(".mp4", "-detModel_3"+"_"+str(conf_thres)+"nms"+str(nms_thres)+".mp4"),fourcc,20.0,(vw,vh))
 
         frames = 0
         starttime = time.time()
