@@ -34,6 +34,7 @@ img_size=416
 nms_thres=0.4
 
 carClass = 0
+trkClass = 1
 
 # confArr=[0.9981,0.9982,0.9983,0.9984,0.9985,0.9986,0.9987,0.9988,0.9989]
 confArr=[0.8]
@@ -129,6 +130,7 @@ modelLoadEnd = time.time()-modelLoadStart
 
 for conf_thres in confArr:
     carObjId=[]
+    trkObjId=[]
     def detect_image(img):
         # scale and pad image
         ratio = min(img_size/img.size[0], img_size/img.size[1])
@@ -171,12 +173,13 @@ for conf_thres in confArr:
         vw = frame.shape[1]
         vh = frame.shape[0]
         print ("Video size", vw,vh)
-        outvideo = cv2.VideoWriter(videopath.replace(".mp4", "-detModel_3"+"_"+str(conf_thres)+"nms"+str(nms_thres)+".mp4"),fourcc,20.0,(vw,vh))
+        outvideo = cv2.VideoWriter(videopath.replace(".mp4", "-detModel_4"+"_"+str(conf_thres)+"nms"+str(nms_thres)+".mp4"),fourcc,20.0,(vw,vh))
 
         frames = 0
         car_count = 0
+        trk_count = 0
 
-        file1 = open(r"D:\Ivan\carsCount.txt","a")
+        file1 = open(r"D:\Ivan\carsTrkCount.txt","a")
         file1.write(videopath)
         while(True):
             ret, frame = vid.read()
@@ -195,6 +198,7 @@ for conf_thres in confArr:
             unpad_w = img_size - pad_x
             cv2.line(frame, (lineX0,lineY),(lineX1,lineY),colors[0],5)
             cv2.putText(frame, str(car_count), (50, 200), cv2.FONT_HERSHEY_SIMPLEX, 5, (255,0,0), 3)
+            cv2.putText(frame, str(trk_count), (250, 200), cv2.FONT_HERSHEY_SIMPLEX, 5, (255,0,0), 3)
             if detections is not None:
                 tracked_objects = mot_tracker.update(detections.cpu())
 
@@ -215,7 +219,11 @@ for conf_thres in confArr:
                     if(cls_pred==carClass and (obj_id in carObjId)==False and lineY <= y1+box_h ):
                         car_count= car_count+1
                         # print(car_count)
-                        carObjId.append(obj_id)                    
+                        carObjId.append(obj_id)
+                    if(cls_pred==trkClass and (obj_id in trkObjId)==False and lineY <= y1+box_h ):
+                        trk_count= trk_count+1
+                        # print(car_count)
+                        trkObjId.append(obj_id)                    
             cv2.imshow('Stream', frame)
             outvideo.write(frame)
             ch = 0xFF & cv2.waitKey(1)
@@ -225,7 +233,9 @@ for conf_thres in confArr:
         totaltime = time.time()-starttime
         print(frames, "frames", totaltime/frames, "s/frame")
         print('number of cars', car_count)
+        print('number of cars', trk_count)
         file1.write(','+str(car_count))
+        file1.write(','+str(trk_count))
         file1.write(','+ str(conf_thres))
         file1.write(','+ str(frames))#frames
         file1.write(','+ str(totaltime))#seconds
