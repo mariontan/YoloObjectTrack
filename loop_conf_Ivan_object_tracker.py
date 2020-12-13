@@ -70,35 +70,35 @@ videoArr=[]
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\test/VID_20200816_161502_crop.mp4')
 
 #15fps
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200509_161540.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200512_161525.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200515_161547.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200518_161529.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200521_161542.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200530_161507.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200602_161933.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200605_161506.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200608_161513.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200611_161534.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200614_161517.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200617_161508.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200620_161507.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200705_161518.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200708_161553.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200711_161516.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200714_161511.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200717_161614.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200720_161556.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200723_161518.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200726_161509.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200729_161519.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200801_161505.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200602_161933.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200804_161505.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200509_161540.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200512_161525.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200515_161547.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200518_161529.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200521_161542.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200530_161507.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200602_161933.mp4')
+videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200605_161506.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200608_161513.mp4')
+videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200611_161534.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200614_161517.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200617_161508.mp4')
+videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200620_161507.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200705_161518.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200708_161553.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200711_161516.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200714_161511.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200717_161614.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200720_161556.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200723_161518.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200726_161509.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200729_161519.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200801_161505.mp4')
+videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200602_161933.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200804_161505.mp4')
 videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200807_161502.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200810_161501.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200810_161501.mp4')
 videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200813_161504.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200816_161502.mp4')
+videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200816_161502.mp4')
 
 #20fps
 # videoArr.append(r'D:\Ivan\Test_data\Katipunan\20fps_test/VID_20200509_161540.mp4')
@@ -108,7 +108,7 @@ lineX1 = 1800
 lineY  = 300
 
 print('videoArr len',len(videoArr))
-
+modelLoadStart = time.time()
 model = Darknet(config_path, img_size=img_size)
 
 if weights_path.endswith('.weights'):
@@ -123,6 +123,7 @@ model.eval()
 
 classes = utils.load_classes(class_path)
 Tensor = torch.cuda.FloatTensor
+modelLoadEnd = time.time()-modelLoadStart
 
 for conf_thres in confArr:
     carObjId=[]
@@ -150,6 +151,7 @@ for conf_thres in confArr:
 
 
     for vid in videoArr:
+        starttime = time.time()
         print(vid)
         videopath = vid 
         import cv2
@@ -170,7 +172,6 @@ for conf_thres in confArr:
         outvideo = cv2.VideoWriter(videopath.replace(".mp4", "-detModel_3"+"_"+str(conf_thres)+"nms"+str(nms_thres)+".mp4"),fourcc,20.0,(vw,vh))
 
         frames = 0
-        starttime = time.time()
         car_count = 0
 
         file1 = open(r"D:\Ivan\carsCount.txt","a")
@@ -224,6 +225,9 @@ for conf_thres in confArr:
         print('number of cars', car_count)
         file1.write(','+str(car_count))
         file1.write(','+ str(conf_thres))
+        file1.write(','+ str(frames))#frames
+        file1.write(','+ str(totaltime))#seconds
+        file1.write(','+ str(modelLoadEnd))#modelLoadTIme
         file1.write('\n')
         file1.close()
         cv2.destroyAllWindows()
