@@ -15,7 +15,7 @@ def formatPaths(path) :
     return path[:-1].split('=')[1].replace('/','\\')
 
 def readTextFile():
-    f = open(sys.argv[-1],"r")
+    f = open(sys.argv[-1],"r") #read from text file the configratins
     lines = f.readlines()
     videoFiles=[]
     config_path = formatPaths(lines[0])
@@ -29,13 +29,7 @@ def readTextFile():
         videoFiles.append(video)
     return config_path, weights_path, class_path, confArr, videoFiles
 
-
-
 config_path, weights_path, class_path,confArr,videoArr = readTextFile()
-
-# config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_2_class_car_truck_combined\config/yolov3.cfg' #img_size = 416#model5
-# weights_path=r'D:\Ivan\YoloCheckpoints\katip_truck_car_twoclass_with_edited_416\checkpoints/yolov3_ckpt_313.pth'
-# class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_2_class_car_truck_combined\config/coco.names'
 
 img_size=416
 nms_thres=0.4
@@ -43,45 +37,6 @@ nms_thres=0.4
 carClass = 0
 trkClass = 1
 
-# confArr=[0.9981,0.9982,0.9983,0.9984,0.9985,0.9986,0.9987,0.9988,0.9989]
-# confArr=[0.8]
-# videoArr=[]
-
-
-
-#15fps
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200509_161540.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200512_161525.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200515_161547.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200518_161529.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200521_161542.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200530_161507.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200602_161933.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200605_161506.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200608_161513.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200611_161534.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200614_161517.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200617_161508.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200620_161507.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200705_161518.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200708_161553.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200711_161516.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200714_161511.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200717_161614.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200720_161556.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200723_161518.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200726_161509.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200729_161519.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200801_161505.mp4')
-# videoArr.append(r'D:/Ivan/Test_data/Katipunan/15fps_test/VID_20200602_161933.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200804_161505.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200807_161502.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200810_161501.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200813_161504.mp4')
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\15fps_test/VID_20200816_161502.mp4')
-
-#20fps
-# videoArr.append(r'D:\Ivan\Test_data\Katipunan\20fps_test/VID_20200509_161540.mp4')
 
 lineX0 = 0
 lineX1 = 1800
