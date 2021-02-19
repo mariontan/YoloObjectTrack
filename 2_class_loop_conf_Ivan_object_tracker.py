@@ -12,7 +12,7 @@ import matplotlib.patches as patches
 from PIL import Image
 
 def formatPaths(path) :
-    return path.split('=')[1].replace('/','\\')
+    return path[:-1].split('=')[1].replace('/','\\')
 
 def readTextFile():
     f = open(sys.argv[-1],"r")
@@ -32,9 +32,9 @@ def readTextFile():
 
 config_path, weights_path, class_path,confArr,video = readTextFile()
 
-config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_2_class_car_truck_combined\config/yolov3.cfg' #img_size = 416#model5
-weights_path=r'D:\Ivan\YoloCheckpoints\katip_truck_car_twoclass_with_edited_416\checkpoints/yolov3_ckpt_313.pth'
-class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_2_class_car_truck_combined\config/coco.names'
+# config_path = r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_2_class_car_truck_combined\config/yolov3.cfg' #img_size = 416#model5
+# weights_path=r'D:\Ivan\YoloCheckpoints\katip_truck_car_twoclass_with_edited_416\checkpoints/yolov3_ckpt_313.pth'
+# class_path =r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_2_class_car_truck_combined\config/coco.names'
 
 img_size=416
 nms_thres=0.4
