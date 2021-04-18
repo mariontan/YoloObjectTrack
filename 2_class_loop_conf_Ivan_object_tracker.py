@@ -12,6 +12,7 @@ import matplotlib.patches as patches
 from PIL import Image
 
 def formatPaths(path) :
+    print(path)
     return path[:-1].split('=')[1].replace('/','\\')
 
 def readTextFile():
@@ -23,13 +24,14 @@ def readTextFile():
     class_path = formatPaths(lines[2])
     confArr = lines[3].split('=')[1][:-1].split(',')
     confArr = [float(i) for i in confArr]
-    files = lines[4:]
+    vidName = lines[4].split('=')[1]
+    files = lines[5:]
     for line in files:
         video = line[:-1].replace('/','\\')
         videoFiles.append(video)
-    return config_path, weights_path, class_path, confArr, videoFiles
+    return config_path, weights_path, class_path, confArr, videoFiles,vidName
 
-config_path, weights_path, class_path,confArr,videoArr = readTextFile()
+config_path, weights_path, class_path,confArr,videoArr,vidName = readTextFile()
 
 img_size=416
 nms_thres=0.4
@@ -105,7 +107,7 @@ for conf_thres in confArr:
         vw = frame.shape[1]
         vh = frame.shape[0]
         print ("Video size", vw,vh)
-        outvideo = cv2.VideoWriter(videopath.replace(".mp4", "-detModel_5"+"_"+str(conf_thres)+"nms"+str(nms_thres)+".mp4"),fourcc,20.0,(vw,vh))
+        outvideo = cv2.VideoWriter(videopath.replace(".mp4", vidName+"_"+str(conf_thres)+"nms"+str(nms_thres)+".mp4"),fourcc,20.0,(vw,vh))
 
         frames = 0
         car_count = 0
@@ -165,7 +167,7 @@ for conf_thres in confArr:
         totaltime = time.time()-starttime
         print(frames, "frames", totaltime/frames, "s/frame")
         print('number of cars', car_count)
-        print('number of cars', trk_count)
+        print('number of trck', trk_count)
         file1.write(','+str(car_count))
         file1.write(','+str(trk_count))
         file1.write(','+ str(conf_thres))
